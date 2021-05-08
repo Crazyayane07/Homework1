@@ -34,8 +34,16 @@ int main() {
 	std::cout << "\n";
 
 	std::cout << "\n";
+	std::cout << "fibonacci_recursive" << "\n";
+	std::cout << "sequence 0 = " << fibonacci_recursive(0) << "\n";
+	std::cout << "sequence 1 = " << fibonacci_recursive(1) << "\n";
+	std::cout << "sequence 2 = " << fibonacci_recursive(2) << "\n";
+	std::cout << "sequence 7 = " << fibonacci_recursive(7) << "\n";
+	std::cout << "sequence 14 = " << fibonacci_recursive(14) << "\n";
+	std::cout << "\n";
 
 	std::cout << "Zadanie 3:" << "\n";
+
 	std::cout << "\n";
 	std::cout << "NWD" << "\n";
 	std::cout << "10 | 6 ->" << NWD(10, 6) << "\n";
@@ -45,6 +53,15 @@ int main() {
 	std::cout << "-10 | -6 ->" << NWD(-10, -6) << "\n";
 	std::cout << "-10 | 6 ->" << NWD(-10, 6) << "\n";
 	std::cout << "3 | 3 ->" << NWD(3, 3) << "\n";
+
+	std::cout << "\n";
+	std::cout << "NWW" << "\n";
+	std::cout << "2 | 6 ->" << NWW(2, 6) << "\n";
+	std::cout << "6 | 2 ->" << NWW(6, 2) << "\n";
+	std::cout << "15 | 5 ->" << NWW(15, 5) << "\n";
+	std::cout << "-2 | -6 ->" << NWW(-2, -6) << "\n";
+	std::cout << "-2 | 6 ->" << NWW(-2, 6) << "\n";
+	std::cout << "3 | 3 ->" << NWW(3, 3) << "\n";
 
 	return 0;
 }
@@ -79,17 +96,40 @@ std::string calculate(const std::string& command, int first, int second)
 
 int fibonacci_iterative(int sequence)
 {
+
 	return 0;
 }
 
 int fibonacci_recursive(int sequence)
 {
-	return 0;
+	if (sequence < 2)
+	{
+		return sequence;
+	}
+
+	return fibonacci_recursive(sequence - 1) + fibonacci_recursive(sequence - 2);		
 }
 
 int NWW(int a, int b)
 {
-	return 0;
+	bool foundNWW = false;
+
+	int multiplayer = a >= b ? a : b;
+	int result = multiplayer;
+
+	while (!foundNWW)
+	{
+		if (result % a == 0 && result % b == 0)
+		{
+			foundNWW = true;
+		}
+		else 
+		{
+			result += multiplayer;
+		}
+	}
+
+	return result;
 }
 
 int NWD(int a, int b)
