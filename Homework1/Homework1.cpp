@@ -42,6 +42,15 @@ int main() {
 	std::cout << "sequence 14 = " << fibonacci_recursive(14) << "\n";
 	std::cout << "\n";
 
+	std::cout << "\n";
+	std::cout << "fibonacci_iterative" << "\n";
+	std::cout << "sequence 0 = " << fibonacci_iterative(0) << "\n";
+	std::cout << "sequence 1 = " << fibonacci_iterative(1) << "\n";
+	std::cout << "sequence 2 = " << fibonacci_iterative(2) << "\n";
+	std::cout << "sequence 7 = " << fibonacci_iterative(7) << "\n";
+	std::cout << "sequence 14 = " << fibonacci_iterative(14) << "\n";
+	std::cout << "\n";
+
 	std::cout << "Zadanie 3:" << "\n";
 
 	std::cout << "\n";
@@ -96,8 +105,21 @@ std::string calculate(const std::string& command, int first, int second)
 
 int fibonacci_iterative(int sequence)
 {
+	if (sequence < 2)
+	{
+		return sequence;
+	}
 
-	return 0;
+	int result = 1;
+	int prevResult = 0;
+	for (int i = 1; i < sequence; i++) 
+	{
+		int tempResult = result;
+		result += prevResult;
+		prevResult = tempResult;
+	}
+
+	return result;
 }
 
 int fibonacci_recursive(int sequence)
